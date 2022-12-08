@@ -12,6 +12,7 @@
         :productList="productList"
         @addProductToCart="addProductToCart($event)"
         @showComponent="showComponent($event)"
+        @verMensaje="verMensaje"
       />
       <AccountForm
         v-show="showAccountForm"
@@ -214,7 +215,7 @@ export default {
           this.$data.showAccountForm = false;
           this.$data.showCart = false;
           this.$data.isLogin = false;
-          window.location = "#";
+          window.location.href = "#";
           break;
 
       }

@@ -27,14 +27,6 @@
               <h3 class="pt-3 pb-2">$ {{ product.precio }}</h3>
               <hr />
               <button
-                v-if="!isLogin"
-                class="btn btn-danger btn-sm"
-                @click="showComponent(2)"
-              >
-                Ingresar a tu cuenta para poder comprar
-              </button>
-              <button
-                v-else
                 class="btn btn-warning btn-sm"
                 @click="addProductToCart(product.id, $event)"
               >
@@ -83,7 +75,10 @@ export default {
       this.$emit("showComponent", component);
     },
     addProductToCart(index, event) {
-      if (this.isLogin == false) return;
+      if (this.isLogin == false) {
+        this.$emit('verMensaje', ['Debes iniciar sesión para agregar productos al carrito', 2])
+        return;
+      }
 
       let product = this.productList.find((x) => x.id === index);
       if (product === undefined) return;
