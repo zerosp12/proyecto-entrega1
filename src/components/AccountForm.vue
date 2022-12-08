@@ -60,7 +60,6 @@
           </div>
 
           <button
-            type="submit"
             @click="loginRequest"
             class="btn btn-primary btn-block mb-4"
           >
@@ -132,8 +131,7 @@
               v-model="registerRepeatPassword"
             />
           </div>
-          <button
-            type="submit"
+          <button 
             class="btn btn-success btn-block mb-3"
             @click="createRequest()"
           >
@@ -170,7 +168,9 @@ export default {
   },
   methods: {
     
-    loginRequest() {
+    loginRequest(event) {
+
+      event.preventDefault();
 
       if(this.loginUsername === '')
       { 
@@ -189,7 +189,9 @@ export default {
         password: this.loginPassword,
       });
     },
-    createRequest() {
+    createRequest(event) {
+
+      event.preventDefault();
 
       if(this.registerName === '')
       { 

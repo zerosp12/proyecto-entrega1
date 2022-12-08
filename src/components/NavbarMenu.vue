@@ -18,22 +18,22 @@
           <div class="collapse navbar-collapse" id="collapseMenu">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link" @click="showComponent(0)" href="#">
+                <a class="nav-link" @click="showComponent(0, $event)" href="#">
                     <i class="fas fa-gift mr-2"></i> Productos
                     </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" @click="showComponent(1)" href="#">
+                <a class="nav-link" @click="showComponent(1, $event)" href="#">
                     <i class="fas fa-shopping-cart mr-2"></i> Carrito
                 </a>
               </li>
               <li v-if="isLogin == false" class="nav-item">
-                <a class="nav-link" @click="showComponent(2)" href="#">
+                <a class="nav-link" @click="showComponent(2, $event)" href="#">
                     <i class="fas fa-user mr-2"></i> Cuenta
                     </a>
               </li>
               <li v-else>
-                <a class="nav-link" @click="showComponent(4)" href="#">
+                <a class="nav-link" @click="showComponent(4, $event)" href="#">
                     <i class="fas fa-user mr-2"></i> Salir
                   </a>
               </li>
@@ -61,7 +61,8 @@ export default {
     clientName: String
   },
   methods: {
-    showComponent(component) {
+    showComponent(component, event) {
+      event.preventDefault();
       this.$emit("showComponent", component);
     },
   },

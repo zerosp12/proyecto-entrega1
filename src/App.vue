@@ -145,7 +145,9 @@ export default {
         this.clientName = findUser.nombre;
         this.userName = findUser.username;
         this.isLogin = true;
-        this.showComponent(0);
+        this.showProductsList = true;
+        this.showAccountForm = false;
+        this.showCart = false;
       }
       else
       {
@@ -214,6 +216,7 @@ export default {
           this.$data.isLogin = false;
           window.location = "#";
           break;
+
       }
     },
   },
